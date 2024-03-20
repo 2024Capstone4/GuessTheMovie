@@ -1,0 +1,31 @@
+<!-- game.html (Page 2 - Guessing Area) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Movie Rating</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Time to test your skills <span id="username"></span>!</h1>
+        <p style="font-size: 30px">Guess the different ratings of the following film:</p>
+        <div id="guessingArea">
+            <input type="number" id="guess1" placeholder="Critic"><br><br>
+            <input type="number" id="guess2" placeholder="Audience"><br><br>
+            <input type="number" id="guess3" placeholder="IMDB"><br><br>
+            <button onclick="checkGuesses()">Check Guesses</button>
+        </div>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        document.getElementById('username').innerText = username;
+
+    </script>
+</body>
+</html>
+

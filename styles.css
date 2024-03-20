@@ -1,0 +1,37 @@
+/* styles.css */
+body {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #0e55a7;
+    border-radius: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+button {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #bb318d;
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.guesses {
+    display: flex;
+    justify-content: center;
+}
+
+.guesses input[type="number"] {
+    width: 100px;
+}
