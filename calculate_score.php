@@ -25,5 +25,14 @@ function calculate_score($title, $critic_guess, $audience_guess, $imdb_guess) {
     return $total_score;
 }
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Movie Rating</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 <p><?php echo($titles);?></p>
+</body>
