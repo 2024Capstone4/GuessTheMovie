@@ -1,6 +1,6 @@
 <?php
 $titles = shell_exec("get_data.py");
-echo($titles);
+
 /*function get_scores($title){
     $critic_score = 0;
     $audience_score = 0;
@@ -24,7 +24,6 @@ function calculate_score($title, $critic_guess, $audience_guess, $imdb_guess) {
     $total_score = ($imdb_score + $critic_score + $audience_score)/3;
     return $total_score;
 }
-
-
-
 ?>
+
+<p><?php echo($titles);?></p>
