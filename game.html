@@ -30,46 +30,6 @@
 
         // Function to display next movie poster randomly
         function nextPoster() {
-            //  fixed URL
-            const moviePosterUrl = "https://image.tmdb.org/t/p/w500/rULWuutDcN5NvtiZi4FRPzRYWSh.jpg";
-            // Set the src attribute of the movie poster element to the fixed URL
-            document.getElementById('moviePoster').src = moviePosterUrl;
-        }
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the Movie Rating</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Time to test your skills <span id="username"></span>!</h1>
-        <div id="moviePosterContainer">
-            <img id="moviePoster" src="https://image.tmdb.org/t/p/w500/rULWuutDcN5NvtiZi4FRPzRYWSh.jpg" alt="Movie Poster">
-        </div>
-        <div id="guessingArea">
-            <p style="font-size: 30px">Guess the different ratings of the following film:</p>
-            <input type="number" id="guess1" placeholder="Critic"><br><br>
-            <input type="number" id="guess2" placeholder="Audience"><br><br>
-            <input type="number" id="guess3" placeholder="IMDB"><br><br>
-            <button onclick="checkGuesses()">Check Guesses</button>
-            <button onclick="nextPoster()">Next</button> <!-- Added Next button -->
-        </div>
-        <p id="result"></p>
-    </div>
-
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('username');
-        document.getElementById('username').textContent = username;
-
-        // Function to display next movie poster randomly
-        function nextPoster() {
             // Here, we don't need to fetch the movie poster URLs as we are using a fixed URL
             const moviePosterUrl = "https://image.tmdb.org/t/p/w500/rULWuutDcN5NvtiZi4FRPzRYWSh.jpg";
             // Set the src attribute of the movie poster element to the fixed URL
@@ -78,4 +38,5 @@
     </script>
 </body>
 </html>
+
 
