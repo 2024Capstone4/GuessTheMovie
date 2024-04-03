@@ -18,6 +18,7 @@
             <input type="number" id="guess2" placeholder="Audience"><br><br>
             <input type="number" id="guess3" placeholder="IMDB"><br><br>
             <button onclick="checkGuesses()">Check Guesses</button>
+            <button onclick="nextPoster()">Next</button> <!-- Added Next button -->
         </div>
         <p id="result"></p>
     </div>
@@ -27,6 +28,44 @@
         const username = urlParams.get('username');
         document.getElementById('username').textContent = username;
 
+      // Array to store movie poster URLs
+        let moviePosterUrls = [];
+    
+        // Function to fetch and display the movie poster
+        function displayMoviePoster() {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        moviePosterUrls = response; // Store movie poster URLs in the array
+                        // Display the first movie poster when the page loads
+                        const randomIndex = Math.floor(Math.random() * moviePosterUrls.length);
+                        document.getElementById('moviePoster').src = moviePosterUrls[randomIndex];
+                    } else {
+                        console.error('Error fetching movie poster:', xhr.status);
+                    }
+                }
+            };
+            xhr.open('GET', 'get_data.php', true);
+            xhr.send();
+        }
+    
+        // Call the function to display the movie poster when the page loads
+        window.onload = displayMoviePoster;
+    
+        // Function to display next movie poster randomly
+        function nextPoster() {
+            // Check if there are movie poster URLs available
+            if (moviePosterUrls.length > 0) {
+                // Pick a random index from the moviePosterUrls array
+                const randomIndex = Math.floor(Math.random() * moviePosterUrls.length);
+                // Set the src attribute of the movie poster element to the randomly picked URL
+                document.getElementById('moviePoster').src = moviePosterUrls[randomIndex];
+            } else {
+                console.error('No movie poster URLs available.');
+            }
+        }
     </script>
 </body>
 </html>
