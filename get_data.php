@@ -34,10 +34,14 @@ if ($response === false) {
     if ($data === null) {
         echo 'Error: Failed to decode JSON.';
     } else {
-        // Access the data as an array
-        // Example: $data['key'] or $data[0]['key']
-        // Display the data (for testing)
-        var_dump($data);
+        // Extract the movie poster URL from the data
+        // Assuming the URL is stored under the 'moviePosterURL' key in the JSON data
+        $moviePosterURL = $data['moviePosterURL'];
+        
+        // Send the movie poster URL as the response
+        header('Content-Type: application/json');
+        echo json_encode($moviePosterURL);
     }
 }
+
 ?>
