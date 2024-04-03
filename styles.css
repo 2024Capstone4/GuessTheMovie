@@ -14,6 +14,19 @@ body {
     border-radius: 10px;
 }
 
+/* Style for movie poster container */
+#moviePosterContainer {
+    margin-bottom: 20px; /* Adjust margin to create space between movie poster and guessing area */
+}
+
+/* Style for movie poster image */
+#moviePoster {
+    max-width: 100%; /* Ensure the movie poster fits within its container */
+    height: auto; /* Preserve aspect ratio of the movie poster */
+    border-radius: 10px; /* Apply border radius to match container */
+    border: 1px solid #0e55a7; /* Add border to the movie poster */
+}
+
 input[type="text"],
 input[type="number"],
 button {
