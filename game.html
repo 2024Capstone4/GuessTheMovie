@@ -28,15 +28,74 @@
         const username = urlParams.get('username');
         document.getElementById('username').textContent = username;
 
+        // Array to store movie poster URLs
+        const moviePosterUrls = [
+            "https://image.tmdb.org/t/p/w500/tMefBSflR6PGQLv7WvFPpKLZkyk.jpg",
+            "https://image.tmdb.org/t/p/w500/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg",
+            "https://image.tmdb.org/t/p/w500/bXi6IQiQDHD00JFio5ZSZOeRSBh.jpg",
+            "https://image.tmdb.org/t/p/w500/ccJpK0rqzhQeP7Mrs2uKqObFY4L.jpg", 
+            "https://image.tmdb.org/t/p/w500/AgHbB9DCE9aE57zkHjSmseszh6e.jpg", 
+            "https://image.tmdb.org/t/p/w500/8QVDXDiOGHRcAD4oM6MXjE0osSj.jpg", 
+            "https://image.tmdb.org/t/p/w500/ldfCF9RhR40mppkzmftxapaHeTo.jpg", 
+            "https://image.tmdb.org/t/p/w500/hu40Uxp9WtpL34jv3zyWLb5zEVY.jpg", 
+            "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg", 
+            "https://image.tmdb.org/t/p/w500/wShcJSKMFg1Dy1yq7kEZuay6pLS.jpg", 
+            "https://image.tmdb.org/t/p/w500/p1LbrdJ53dGfEhRopG71akfzOVu.jpg", 
+            "https://image.tmdb.org/t/p/w500/fko8CPrnspewLXgFUlUkivyvpHX.jpg", 
+            "https://image.tmdb.org/t/p/w500/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg", 
+            "https://image.tmdb.org/t/p/w500/h3jYanWMEJq6JJsCopy1h7cT2Hs.jpg", 
+            "https://image.tmdb.org/t/p/w500/hkxxMIGaiCTmrEArK7J56JTKUlB.jpg", 
+            "https://image.tmdb.org/t/p/w500/nKPoSD4pZ3s3CJ9g3cqWRcQ41TC.jpg", 
+            "https://image.tmdb.org/t/p/w500/87goLbbqrJqAxqDS5cBsik1zKT.jpg", 
+            "https://image.tmdb.org/t/p/w500/siduVKgOnABO4WH4lOwPQwaGwJp.jpg", 
+            "https://image.tmdb.org/t/p/w500/5a7cocgyVuFjYV71neDIGVzD6Yq.jpg", 
+            "https://image.tmdb.org/t/p/w500/3UKlVa1CBeQkRksHV5OfFTO52qd.jpg", 
+            "https://image.tmdb.org/t/p/w500/8jJKM0ZR3GQo6E3CUkMKKVa4S8B.jpg", 
+            "https://image.tmdb.org/t/p/w500/hhvMTxlTZtnCOe7YFhod9uz3m37.jpg", 
+            "https://image.tmdb.org/t/p/w500/qhb1qOilapbapxWQn9jtRCMwXJF.jpg", 
+            "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg", 
+            "https://image.tmdb.org/t/p/w500/j1Rjw6a62UwrbTNT0I3JzZnnCmr.jpg", 
+            "https://image.tmdb.org/t/p/w500/v9f9MMrq2nGQrN7cHnQRmEq9lSE.jpg", 
+            "https://image.tmdb.org/t/p/w500/7IJ7F8tX7IAkpUdaGovOBJqORnJ.jpg", 
+            "https://image.tmdb.org/t/p/w500/kCGlIMHnOm8JPXq3rXM6c5wMxcT.jpg", 
+            "https://image.tmdb.org/t/p/w500/5qHoazZiaLe7oFBok7XlUhg96f2.jpg", 
+            "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg", 
+            "https://image.tmdb.org/t/p/w500/tVMddOS5bi3YPVPgTPlEw0TOWoF.jpg", 
+            "https://image.tmdb.org/t/p/w500/fQ40gmFM4p03tXwMxQQKh2cCBW4.jpg", 
+            "https://image.tmdb.org/t/p/w500/vgJZSqKMXWDDx09iSIStGKfHMku.jpg", 
+            "https://image.tmdb.org/t/p/w500/slQYCDzCMM8SBh9Xa3aPeM2fekA.jpg", 
+            "https://image.tmdb.org/t/p/w500/r65fWcFELCSeyyrkq5wY09EPSGN.jpg", 
+            "https://image.tmdb.org/t/p/w500/trEe8yRZvMvQQD61tBrCAD6sqaB.jpg", 
+            "https://image.tmdb.org/t/p/w500/hUu9zyZmDd8VZegKi1iK1Vk0RYS.jpg", 
+            "https://image.tmdb.org/t/p/w500/1On8iF3AsFIbpyfZg1xiGWMAFBn.jpg", 
+            "https://image.tmdb.org/t/p/w500/fiVW06jE7z9YnO4trhaMEdclSiC.jpg", 
+            "https://image.tmdb.org/t/p/w500/o960Qx10rRRA4t44DsjeiYB3Dmh.jpg", 
+            "https://image.tmdb.org/t/p/w500/2J5eeroLDY0d45mVjpuGhcLZs3W.jpg", 
+            "https://image.tmdb.org/t/p/w500/9GBhzXMFjgcZ3FdR9w3bUMMTps5.jpg", 
+            "https://image.tmdb.org/t/p/w500/7lTnXOy0iNtBAdRP3TZvaKJ77F6.jpg", 
+            "https://image.tmdb.org/t/p/w500/4ndp1pnHWRuiZLNpFJvO4Kh6Tav.jpg", 
+            "https://image.tmdb.org/t/p/w500/gavGnAMTXPkpoFgG0stwgIgKb64.jpg", 
+            "https://image.tmdb.org/t/p/w500/zokD6uxR2iWfYM3Y84yGJvnNTK7.jpg", 
+            "https://image.tmdb.org/t/p/w500/fFdG5U2PzhRrHRpbbORQrcAMn8D.jpg", 
+            "https://image.tmdb.org/t/p/w500/mKWalirPreEdCKDJjc5TKeOP2xi.jpg", 
+            "https://image.tmdb.org/t/p/w500/iIKYK9mdapWlJ21YNRGB57WKErK.jpg",
+            "https://image.tmdb.org/t/p/w500/rULWuutDcN5NvtiZi4FRPzRYWSh.jpg",
+            "https://image.tmdb.org/t/p/w500/iIKYK9mdapWlJ21YNRGB57WKErK.jpg"
+        ];
+
         // Function to display next movie poster randomly
         function nextPoster() {
-            // Here, we don't need to fetch the movie poster URLs as we are using a fixed URL
-            const moviePosterUrl = "https://image.tmdb.org/t/p/w500/rULWuutDcN5NvtiZi4FRPzRYWSh.jpg";
-            // Set the src attribute of the movie poster element to the fixed URL
-            document.getElementById('moviePoster').src = moviePosterUrl;
+            // Check if there are movie poster URLs available
+            if (moviePosterUrls.length > 0) {
+                // Pick a random index from the moviePosterUrls array
+                const randomIndex = Math.floor(Math.random() * moviePosterUrls.length);
+                // Set the src attribute of the movie poster element to the randomly picked URL
+                document.getElementById('moviePoster').src = moviePosterUrls[randomIndex];
+            } else {
+                console.error('No movie poster URLs available.');
+            }
         }
     </script>
 </body>
 </html>
-
 
