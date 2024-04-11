@@ -1,0 +1,20 @@
+/* styles.css */
+body {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; /* Set a background color */
+    animation: backgroundAnimation 10s infinite alternate; /* Apply background animation */
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-color: #1d701d; /* Initial background color */
+    }
+    50% {
+        background-color: #c25f1d; /* Intermediate background color */
+    }
+    100% {
+        background-color: #8b43ce; /* Return to original background color */
+    }
+}
