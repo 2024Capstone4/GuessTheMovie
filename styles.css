@@ -3,6 +3,7 @@ body {
     font-family: monospace;
     margin: 0;
     padding: 0;
+    background-color: #f2f2f2; /* Set a background color */
 }
 
 .container {
@@ -12,6 +13,8 @@ body {
     text-align: center;
     border: 1px solid #0e55a7;
     border-radius: 10px;
+    background-color: #fff; /* Set a background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow */
 }
 
 /* Style for movie poster container */
@@ -32,12 +35,32 @@ input[type="number"],
 button {
     padding: 10px;
     margin: 10px;
-    border: 1px solid #bb318d;
+    border: none; /* Remove border */
     border-radius: 5px;
+    background-color: #b893ad; /* Set a background color */
+    color: #fff; /* Set text color */
+    font-weight: bold; /* Make text bold */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add transition effect */
+    animation-duration: 0.5s; /* Set animation duration */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
 }
 
-button {
-    cursor: pointer;
+button:hover {
+    background-color: #b893ad; /* Change background color on hover */
+    animation-name: buttonHover; /* Apply animation on hover */
+}
+
+@keyframes buttonHover {
+    0% {
+        transform: scale(1); /* Initial scale */
+    }
+    50% {
+        transform: scale(1.1); /* Scale up to 1.1 */
+    }
+    100% {
+        transform: scale(1); /* Return to original scale */
+    }
 }
 
 .guesses {
