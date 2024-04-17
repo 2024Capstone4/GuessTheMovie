@@ -29,11 +29,11 @@
         const username = urlParams.get('username');
         document.getElementById('username').textContent = username;
 
-        // Array of objects containing movie poster URLs and scores
+        // Array of objects containing movie poster URLs and scores for data
         const moviesData = [
             {
                 posterUrl: "https://image.tmdb.org/t/p/w500/tMefBSflR6PGQLv7WvFPpKLZkyk.jpg",
-                scores: [12, 57, 38] // Scores for Madame Web
+                scores: [54, 91, 65] // Scores for godzilla x kong new empire
             },
             {
                 posterUrl: "https://image.tmdb.org/t/p/w500/bXi6IQiQDHD00JFio5ZSZOeRSBh.jpg",
@@ -42,6 +42,34 @@
             {
                 posterUrl: "https://image.tmdb.org/t/p/w500/ccJpK0rqzhQeP7Mrs2uKqObFY4L.jpg",
                 scores: [51, 96, 72] //creation of the gods
+            },
+            {
+                posterUrl: "https://image.tmdb.org/t/p/w500/AgHbB9DCE9aE57zkHjSmseszh6e.jpg",
+                scores: [56, 61, 61] //damsel
+            },
+             {
+                posterUrl: "https://image.tmdb.org/t/p/w500/8QVDXDiOGHRcAD4oM6MXjE0osSj.jpg",
+                scores: [83, 89, 62] // alienoid
+            },
+             {
+                posterUrl: "https://image.tmdb.org/t/p/w500/ldfCF9RhR40mppkzmftxapaHeTo.jpg",
+                scores: [72, 88, 67] //migration
+            },
+             {
+                posterUrl: "https://image.tmdb.org/t/p/w500/hu40Uxp9WtpL34jv3zyWLb5zEVY.jpg",
+                scores: [32, 32, 46] //no way up (no audience score lol, so same value for both in that case)
+            },
+             {
+                posterUrl: "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+                scores: [93, 95, 87] //dune woo
+            },
+             {
+                posterUrl: "https://image.tmdb.org/t/p/w500/h3jYanWMEJq6JJsCopy1h7cT2Hs.jpg",
+                scores: [63, 94, 65] // land pf bad
+            },
+             {
+                posterUrl: "https://image.tmdb.org/t/p/w500/5a7cocgyVuFjYV71neDIGVzD6Yq.jpg",
+                scores: [33, 72, 57] //argyle 
             },
             // Add more movie data objects here
         ];
@@ -68,6 +96,13 @@
             const guess1 = parseInt(document.getElementById('guess1').value);
             const guess2 = parseInt(document.getElementById('guess2').value);
             const guess3 = parseInt(document.getElementById('guess3').value);
+
+            // Check if the user inputs are valid numbers
+            if (isNaN(guess1) || isNaN(guess2) || isNaN(guess3)) {
+                alert('Please enter valid numbers for the guesses.');
+                return;
+            }
+
             const actualScores = JSON.parse(document.getElementById('moviePoster').dataset.scores);
 
             // Calculate the difference between actual and guessed scores
@@ -80,7 +115,7 @@
 
             // Display the percentage of closeness
             const percentCloseness = 100 - totalDifference;
-            document.getElementById('result').textContent = `You were ${percentCloseness.toFixed(2)}% close to the correct scores.`;
+            document.getElementById('result').textContent = `Averaged Score: ${percentCloseness.toFixed(2)}% close!`;
 
             // Clear the input fields
             document.getElementById('guess1').value = '';
@@ -88,8 +123,5 @@
             document.getElementById('guess3').value = '';
         }
     </script>
-</body>
-</html>
-
 </body>
 </html>
