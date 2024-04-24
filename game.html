@@ -11,7 +11,7 @@
     <div class="container">
         <h1>Time to test your skills <span id="username"></span>!</h1>
         <div id="moviePosterContainer">
-            <img id="moviePoster" src="https://i.ibb.co/CPrYrY8/metamovie.jpg" alt="Movie Poster" style="width: 100%; max-width: 600px;">
+            <img id="moviePoster" src="https://i.ibb.co/j3Qw16q/Meta-FInale.jpg" alt="Movie Poster" style="width: 100%; max-width: 600px;">
 
         </div>
         <div id="guessingArea">
@@ -78,9 +78,10 @@
 
              // Function to display next movie poster randomly
         function nextPoster() {
-            // Clear the result and actualScores paragraphs
-            document.getElementById('result').textContent = '';
-            document.getElementById('actualScores').textContent = '';
+            // Clear input fields for guesses when pressing next. 
+             document.getElementById('guess1').value = '';
+             document.getElementById('guess2').value = '';
+             document.getElementById('guess3').value = '';
         
             // Check if there are movie data available
             if (moviesData.length > 0) {
