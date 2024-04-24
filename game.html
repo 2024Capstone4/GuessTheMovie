@@ -22,6 +22,7 @@
             <button onclick="nextPoster()">Next</button> <!-- Added Next button -->
         </div>
         <p id="result"></p>
+        <p id="actualScores"></p> <!-- Added paragraph for displaying actual scores -->
     </div>
 
     <script>
@@ -116,6 +117,9 @@
             // Display the percentage of closeness
             const percentCloseness = 100 - totalDifference;
             document.getElementById('result').textContent = `Averaged Score: ${percentCloseness.toFixed(2)}% close!`;
+
+            // Display the correct movie actual scores
+            document.getElementById('actualScores').textContent = `Correct Scores: Critic: ${actualScores[0]}, Audience: ${actualScores[1]}, IMDB: ${actualScores[2]}`;
 
             // Clear the input fields
             document.getElementById('guess1').value = '';
