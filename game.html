@@ -76,8 +76,12 @@
             // Add more movie data objects here
         ];
 
-        // Function to display next movie poster randomly
+             // Function to display next movie poster randomly
         function nextPoster() {
+            // Clear the result and actualScores paragraphs
+            document.getElementById('result').textContent = '';
+            document.getElementById('actualScores').textContent = '';
+        
             // Check if there are movie data available
             if (moviesData.length > 0) {
                 // Pick a random index from the moviesData array
